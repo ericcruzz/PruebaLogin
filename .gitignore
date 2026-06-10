@@ -1,0 +1,32 @@
+# Build Files
+bin/
+obj/
+
+# VS User Settings
+.vs/
+
+# Temp Files
+*.tmp
+*.log
+
+# Dump File
+*stackdump
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# Environment Variables
+.env
+
+# Test
+postman/
