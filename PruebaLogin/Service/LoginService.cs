@@ -15,24 +15,24 @@ namespace PruebaLogin.Service
         {
             bool response = false;
 
-            if (ExistsPasswordHash(username, password))
-            {
+            //if (ExistsPasswordHash(username, password))
+            //{
 
-                var passwordHash = GetPasswordHash(username);
-                var passHashCreated = EncryptPBKDF2(username, password);
-                response = VerifyPassword(username, passHashCreated, passwordHash);
-            }
-            else
-            {
+            //    var passwordHash = GetPasswordHash(username);
+            //    var passHashCreated = EncryptPBKDF2(username, password);
+            //    response = VerifyPassword(username, passHashCreated, passwordHash);
+            //}
+            //else
+            //{
                
-                CreatePasswordHash(username, password);
-                var passwordHash = EncryptPBKDF2(username, password);
+                //CreatePasswordHash(username, password);
+                //var passwordHash = EncryptPBKDF2(username, password);
                 var error = await _context.Database
-                    .SqlQuery<int>($"EXECUTE SP_Operations 'login', NULL, {username}, {passwordHash}")
+                    .SqlQuery<int>($"EXECUTE SP_Operations 'login', NULL, {username}, {password}")
                     .ToListAsync();
 
                  response = error.FirstOrDefault() == 0 ? true : false;
-            }
+            //}
 
             return response;
         }
