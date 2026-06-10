@@ -20,8 +20,6 @@ namespace PruebaLogin.Controllers
         [Route("login")]
         public async Task<IActionResult> Login([FromBody] Login login)
         {
-            
-
             var isValid = await _loginService.Access(login.Username, login.Password);
 
             if (!isValid)
